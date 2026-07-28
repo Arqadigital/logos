@@ -1,0 +1,28 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradiente Mesh de fondo exacto basado en la paleta de Perspective -->
+    <linearGradient id="perspectiveMesh" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00DEFF" />  <!-- Cian intenso (Esquina sup. izq) -->
+      <stop offset="35%" stop-color="#A90FFF" /> <!-- Morado (Transición) -->
+      <stop offset="70%" stop-color="#E31C8C" /> <!-- Magenta (Transición) -->
+      <stop offset="100%" stop-color="#FF4D00" /> <!-- Naranja/Rojo (Esquina inf. der) -->
+    </linearGradient>
+
+    <!-- Sombra sutil para la letra V (para darle el efecto de relieve 3D) -->
+    <filter id="vShadow" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB">
+      <feOffset dx="0" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0" in="shadowBlurOuter1" result="shadowMatrixOuter1"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Contenedor con esquinas redondeadas tipo "squircle" (iOS) -->
+  <rect width="1080" height="1080" rx="260" fill="url(#perspectiveMesh)" />
+
+  <!-- Letra V blanca, bold y redondeada, perfectamente centrada y con sombra -->
+  <path d="M541.286 796.5L333 281H400.5L541.286 632L682.071 281H749.571L541.286 796.5Z" fill="white" stroke="white" stroke-width="60" stroke-linecap="round" stroke-linejoin="round" filter="url(#vShadow)"/>
+</svg>
